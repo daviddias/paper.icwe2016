@@ -82,7 +82,7 @@
 %% ABSTRACT
 
 \begin{abstract}
-This paper describes the tutorial delivered at ICWE 2016 on Building Distributed Web Applications with IPFS\@. IPFS, the InterPlanetary File System, is the distributed and permanent Web, a protocol to make the Web faster, more secure, open and available. The tutorial format focuses in key elements of IPFS and how to use it to build applications with.
+The contents of this document describe the tutorial session delivered at ICWE 2016, on Building Distributed Web Applications with IPFS\@. IPFS, the InterPlanetary File System, is the distributed and permanent Web, a protocol to make the Web faster, more secure and open. The tutorial format focuses in key elements of IPFS and how to use it to build applications with.
 \end{abstract}
 
 %% KEYWORDS
@@ -93,27 +93,51 @@ This paper describes the tutorial delivered at ICWE 2016 on Building Distributed
 
 \section{Introduction}\label{sec:intro}
 
-IPFS, the InterPlanetary File System, is the distributed and permanent Web, a protocol to make the Web faster, more secure, open and available. IPFS could be seen as Git meets a BitTorrent swarm, exchanging objects within one Git repository. In other words, IPFS provides a high throughput content-addressed block storage model, with content-addressed hyperlinks. This forms a generalised MerkleDAG, a data structure that can beused to build versioned file systems, blockchains, unix like file systems, amongst other options. IPFS combines a Distributed Hash Table, an incentivised block exchange and a self-certifying namespace. IPFS has no single point of failure, and nodes do not need to trust each other.
+IPFS~\cite{IPFS}, the InterPlanetary File System, is the distributed and permanent Web, a protocol to make the Web faster, more secure, open and available. IPFS can be described ``as Git meets a BitTorrent swarm'', exchanging objects within one Git repository. In other words, IPFS provides a high throughput content-addressed block storage model, with content-addressed hyperlinks. This forms a generalised MerkleDAG, a data structure that can beused to build versioned file systems, blockchains, unix like file systems, amongst other options. IPFS combines a Distributed Hash Table, an incentivised block exchange and a self-certifying namespace. IPFS has no single point of failure, and nodes do not need to trust each other.
 
-This tutorial will focus on the IPFS Application Stack, including: libp2p, the networking layer; bitswap for data exchange;IPLD and the MerkleDAG, the thin waist data structure of IPFS and how to use IPFS interface to build distributed applications. The full length of the tutorial is 6 hours.
+The tutorial will focus on the IPFS Application Stack, including: libp2p, the networking layer; bitswap for data exchange;IPLD and the MerkleDAG, the thin waist data structure of IPFS and how to use IPFS interface to build distributed applications. The full length of the tutorial is 6 hours.
 
 %% MOTIVATIONS
 
 \section{Motivations and goals}\label{sec:motivation}
 
-% TODO
+Distributed Applications are naturally complex, it is known that a ton of work and energy has been put by professionals from the Academia and the Industry to solve some of the toughest problems to deliver guarantees and semantics that applications can use and trust.
+
+IPFS builds on top of the knowledge gathered along the last decades, offering semantics that are similar to those of a file system, but built with the Web in mind. This tutorial covers the core challenges of building a distributed application and offers a structure to solve those problems through IPFS\@.
 
 %% IPFS
 
 \section{IPFS, the InterPlanetary FileSystem}\label{sec:ipfs}
 
-% TODO
+A complete IPFS description can be found on the IPFS paper~\cite{IPFS} and the specifications repository~\footnote{https://github.com/ipfs/specs} inside the IPFS organization on Github. Here we present a distilled version on each layer of IPFS\@.
+
+\subsection{libp2p}
+
+libp2p~\footnote{https://github.com/ipfs/specs/tree/master/libp2p} is the networking layer library built for IPFS, which exists as a standalone project.\ libp2p is a modularized and extensible approach to the network stack, that reuses existing transports and system capabilities to offer NAT Traversal, Peer Discovery, Routing, Stream Multiplexing, Protocol Multiplexing, Encryption, Authentication and more.
+
+\subsection{Data Exchange}
+
+The IPFS Data Exchange takes care of negotiating bulk data transfers, exchanging blocks that are wanted by a given peer in a market like approach.
+
+\subsection{MerkleDAG}
+
+The ipfs merkledag is a directed acyclic graph whose edges are merkle-links. This means that links to objects can authenticate the objects themselves, and that every object contains a secure representation of its children.
+
+This is a powerful primitive for distributed systems computations. The merkledag simplifies distributed protocols by providing an append-only authenticated datastructure. Parties can communicate and exchange secure references (merkle-links) to objects. The references are enough to verify the correctness of the object at a later time, which allows the objects themselves to be served over untrusted channels. Merkledags also allow the branching of a datastructure and subsequent merging, as in the version control system git. More generally, merkledags simplify the construction of Secure CRDTs, which enable distributed, convergent, commutative computation in an authenticated, secure way.
+
+\subsection{Data Structures}
+
+Any kind of Data Structure that can be described in a graph format can be mounted on top of the IPFS MerkleDAG\@. A pratical example is the included UnixFS, a Data Structure that is built into IPFS offering a native way to handle files in familiar way to filesystems in Unix environments.
+
+\subsection{Naming}
+
+Naming inside IPFS is governed by IPNS, the InterPlanetary Naming System. IPNS takes ideas from SFS~\cite{mazieres2000sfs} to enable the creation of cryptographically signed mutable pointers, which can be used to the creation of name records inside the network.
 
 %% TUTORIAL
 
 \section{Tutorial}\label{sec:tutorial}
 
-The format of the tutorial is a mix between a lecture and a laboratory class. Participants will get a common base of understanding of what is IPFS through a lecture like session, following to a hands on laboratory class, where each individual will work in parallel in order to build a Distributed Web Application with IPFS, following a series of steps, starting from the network, going to the data model, design decisions on desired guarantees and so on.
+The format of the tutorial is a sum of a lecture and a laboratory class. Participants will get a common base of understanding of what is IPFS through a lecture, followed by an hands on laboratory class, where each individual will work in parallel and build a Distributed Web Application with IPFS\@. This tasks will be divided in a series of steps, starting from the network, followed by the data model, design decisions on desired guarantees and so on.
 
 During these practical steps, participants will interact with the several layers of IPFS and their respective APIs.
 
