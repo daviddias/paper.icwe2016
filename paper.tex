@@ -82,9 +82,7 @@
 %% ABSTRACT
 
 \begin{abstract}
-IPFS, the InterPlanetary File System, is the distributed and permanent Web, a protocol to make the Web faster, more secure, open and available. IPFS could be seen as Git meets a BitTorrent swarm, exchanging objects within one Git repository. In other words, IPFS provides a high throughput content-addressed block storage model, with content-addressed hyperlinks. This forms a generalised MerkleDAG, a data structure that can beused to build versioned file systems, blockchains, unix like file systems, amongst other options. IPFS combines a Distributed Hash Table, an incentivised block exchange and a self-certifying namespace. IPFS has no single point of failure, and nodes do not need to trust each other.
-
-This tutorial will focus on the IPFS Application Stack, including: libp2p, the networking layer; bitswap for data exchange;IPLD and the MerkleDAG, the thin waist data structure of IPFS and how to use IPFS interface to build distributed applications. The full length of the tutorial is 6 hours.
+This paper describes the tutorial delivered at ICWE 2016 on Building Distributed Web Applications with IPFS\@. IPFS, the InterPlanetary File System, is the distributed and permanent Web, a protocol to make the Web faster, more secure, open and available. The tutorial format focuses in key elements of IPFS and how to use it to build applications with.
 \end{abstract}
 
 %% KEYWORDS
@@ -95,32 +93,113 @@ This tutorial will focus on the IPFS Application Stack, including: libp2p, the n
 
 \section{Introduction}\label{sec:intro}
 
+IPFS, the InterPlanetary File System, is the distributed and permanent Web, a protocol to make the Web faster, more secure, open and available. IPFS could be seen as Git meets a BitTorrent swarm, exchanging objects within one Git repository. In other words, IPFS provides a high throughput content-addressed block storage model, with content-addressed hyperlinks. This forms a generalised MerkleDAG, a data structure that can beused to build versioned file systems, blockchains, unix like file systems, amongst other options. IPFS combines a Distributed Hash Table, an incentivised block exchange and a self-certifying namespace. IPFS has no single point of failure, and nodes do not need to trust each other.
+
+This tutorial will focus on the IPFS Application Stack, including: libp2p, the networking layer; bitswap for data exchange;IPLD and the MerkleDAG, the thin waist data structure of IPFS and how to use IPFS interface to build distributed applications. The full length of the tutorial is 6 hours.
+
+%% MOTIVATIONS
+
 \section{Motivations and goals}\label{sec:motivation}
 
+% TODO
+
+%% IPFS
+
 \section{IPFS, the InterPlanetary FileSystem}\label{sec:ipfs}
+
+% TODO
 
 %% TUTORIAL
 
 \section{Tutorial}\label{sec:tutorial}
 
+The format of the tutorial is a mix between a lecture and a laboratory class. Participants will get a common base of understanding of what is IPFS through a lecture like session, following to a hands on laboratory class, where each individual will work in parallel in order to build a Distributed Web Application with IPFS, following a series of steps, starting from the network, going to the data model, design decisions on desired guarantees and so on.
+
+During these practical steps, participants will interact with the several layers of IPFS and their respective APIs.
+
 \subsection{Learning outcomes}
+
+During this session, it is expected that attendees learn how to:
+
+\begin{itemize}
+  \item install IPFS
+  \item use IPFS CLI
+  \item use IPFS HTTPitemAPI
+  \item use IPFS client libraries
+  \item load an application from IPFS
+  \item dial between peers, using IPFS (libp2p)
+  \item learn how to build data structures on top of the Object (DAG) API
+  \item learn how to use UnixFS
+\end{itemize}
 
 \subsection{Target audience}
 
+General interest in cryptography, distributed systems, data structures and P2P protocols is recommended. Familiarity with JavaScript or the Go programming languages are a bonus, however any knowledge of CS programming will suffice.
+
 \subsection{Curriculum}
+
+This tutorial covers the IPFS stack and topics to have into account when building distributed applications, including:
+
+\begin{itemize}
+  \item Merkle Trees
+  \item Merkle'lized Data Structures
+  \item MerkleDAG
+  \item IPLD
+  \item Hashing functions
+  \item Distributed Hash Tables
+  \item Routing strategies and protocols
+  \item Peer Discovery
+  \item Transport protocls
+  \item IPFS HTTP API
+  \item IPFS Core API
+  \item IPFS CLI
+  \item Data Exchange, namely bitswap
+  \item Self Describable Data Formats
+\end{itemize}
+
+The tutorial is custom build for ICWE2016 audience, taking into consideration participants experience with the subject and interest.
 
 %% PRESENTER
 
 \section{Presenter}\label{sec:presenter}
 
+David Dias is a P2P Software Engineer and Researcher at Protocol Labs (http://ipn.io), the company behind IPFS\@. Before, David worked on the security and web development industry at Lift Security.
 
+David holds a P2P Masters in Science, having built the first P2P DHT using WebRTC specifically for the Web Platform for job execution distribution.
+
+David's speaking history with regards to P2P, security and distributed systems has been the following:
+
+\begin{itemize}
+  \item Dec 2015 | Linux Foundation Node.js Interactive Conference. Stellar Module
+Management, using IPFS for code package distribution.
+  \item May 2015 | Data Terra Nemo, the P2P Conf. ``webrtc-explorer'', distributed browser
+computing platform using volunteered shared resources
+  \item Feb 2015 | OpoJS\@. Resource Discovery for the Web Platform on top of a P2P
+Overlay Network powered by WebRTC
+  \item Apr 2014 | JSConf Brazil. Securing Node.js Applications by the community and for
+the community
+\end{itemize}
+
+Currently I'm also an invited Professor at the University of Lisbon, having developed a new post graduation course on modern web development.
+
+Other relevant previous work:
+
+\begin{itemize}
+  \item Developed a 2 day WebRTC Training for O'Reilly Fluent Conf 2015
+  \item Node Security researcher
+  \item Part of the european research project SynergyVM while a researcher on the
+distributed systems group at INESC-ID
+\end{itemize}
 
 %% CONCLUSION
 
 \section{Conclusion}\label{sec:conclusion}
 
-\subsection{Acknowledgments}
+With this tutorial, participants will become knowledgeable of the components that compose IPFS, its architecture design decisions and be confortable to build Web Applications with IPFS\@.
 
+The materials built for this tutorial will be made available under MIT License, under the IPFS organization on GitHub\footnote{https://github.com/ipfs}. Participants are encouraged to consult them at any time or distribute amonsgt their colleagues in their organization. We will continue to improve the content as IPFS evolves.
+
+We would like to acknowledge and send our appreciation to the organizing committee behind ICWE 2016 for having invited us to make this Tutorial happen.
 
 %% BIBLIOGRAPHY
 
@@ -130,8 +209,6 @@ This tutorial will focus on the IPFS Application Stack, including: libp2p, the n
 All links were last followed on March 10, 2016.
 
 \end{document}
-
-
 
 
 % ------------------------------------------------------------------------------
